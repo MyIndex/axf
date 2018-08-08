@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block extJS %}
+        <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+    <header></header>
+
+{% endblock %}
+
+
+{% block footer %}
+    <footer>
+
+        <a href="/home/"  class="home">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>主页</dd>
+            </dl>
+
+        </a>
+
+        <a href="/market/" class="market">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>闪购</dd>
+            </dl>
+        </a>
+
+        <a href="/shopcar/" class="cart">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>购物车</dd>
+            </dl>
+        </a>
+
+        <a href="/mine/" class="minet">
+            <dl>
+                <dt>
+                    <span></span>
+                </dt>
+                <dd>我的</dd>
+            </dl>
+        </a>
+
+
+    </footer>
+{% endblock %}

@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_main.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block extCSS %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/mine.css' %}">
+
+{% endblock %}
+
+{% block body %}
+    <div>
+        这是我所担负的速度方法斯蒂芬范德萨的
+    </div>
+{% endblock %}

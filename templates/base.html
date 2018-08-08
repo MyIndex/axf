@@ -1,10 +1,40 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
+
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/swiper.css' %} ">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extCSS %}
+    {% endblock %}
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+    {% block extJS %}
+    {% endblock %}
+
 </head>
+
 <body>
 
+{% block header %}
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
 </body>
 </html>
