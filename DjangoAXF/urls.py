@@ -21,5 +21,8 @@ from axf import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/',views.home),
-    url(r'^index/',views.index)
+    url(r'^index/',views.index),
+    url(r'^market/',views.market),
+    url(r'^market_by_typeid/(\d+)/(\d+)/(\d+)/',views.market_by_typeid),
+
 ]

@@ -1,8 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
-from axf.models import axf_wheel, axf_nav, axf_mustbuy, axf_shop, axf_mainshow
+from axf.models import axf_wheel, axf_nav, axf_mustbuy, axf_shop, axf_mainshow, axf_foodtypes, axf_goods
 
 
 def index(reques):
@@ -38,15 +38,47 @@ def home(request):
     return render(request,'home.html',data)
 
 
-def market(request):
+def market_by_typeid(request,typeid,sort=0,childtypenames=0):
+    # 全部类别
+    foodtypes = axf_foodtypes.objects.all()
+    # 升序
+    if sort == '1':
+        goodslist = axf_goods.objects.filter(categoryid=typeid).order_by('price')
+    # 降序
+    elif sort == '2':
+        goodslist = axf_goods.objects.filter(categoryid=typeid).order_by('-price')
+    # 销量
+    elif sort == '3':
+        goodslist = axf_goods.objects.filter(categoryid=typeid).order_by('productnum')
+    else:
+        goodslist = axf_goods.objects.filter(categoryid=typeid)
 
+    if childtypenames != '0':
+        goodslist = goodslist.filter(childcid = childtypenames)
+
+    # 对类别进行切割
+    goodstype = axf_foodtypes.objects.filter(typeid = typeid).first()
+    # ['全部分类:0', '进口水果:103534', '国产水果:103533']
+    typelist = goodstype.childtypenames.split('#')
+    types = []
+    for str in typelist:
+        types.append(str.split(':'))
+    # [['全部分类', '0'], ['进口水果', '103534'], ['国产水果', '103533']]
+    # print(types)
     data = {
         'title': '闪购',
+        'foodtypes': foodtypes,
+        'goodslist': goodslist,
+        'typeid': typeid,
+        'type': types,
+        'childtypenames': childtypenames,
 
     }
-
     return render(request, 'market.html', data)
 
+def market(requetst):
+    # 回转
+    return redirect('/market_by_typeid/104749/0/0/')
 
 def shopcar(request):
     data = {

@@ -1,10 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_main.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block extCSS %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/market.css' %}">
+{% endblock %}
+
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/market.js' %}"></script>
+{% endblock %}
+{% block body %}
+    <div id="market">
+        {# 左边导航 #}
+        <aside>
+            <ul>
+                {% for foodtype in foodtypes %}
+                    <li>
+                        <a href="/market_by_typeid/{{ foodtype.typeid }}/0/0/">
+                            {% ifequal typeid foodtype.typeid%}
+                                <span class="yellowSlide"></span>
+                            {% endifequal %}
+                            {{ foodtype.typename }}
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </aside>
+        <section>
+            <nav>
+                <ul>
+                    <li>
+                        <sapn >全部类型<span id="alltypespan" class="glyphicon glyphicon-chevron-down"></span></sapn>
+                    </li>
+                    <li>
+                        <span >综合排序<span id="zhsortspan" class="glyphicon glyphicon-chevron-down"></span></span>
+                    </li>
+                </ul>
+            </nav>
+            
+            <menu>
+                <ul>
+                    {% for goods in goodslist %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ goods.productimg }}" alt="{{ goods.productname }}">
+                                <article class="shoppingInfo">
+                                    <h6>{{ goods.productlongname }}</h6>
+                                    <p class="detailTag">
+                                        <span>精选</span>
+                                        <span></span>
+                                    </p>
+                                    <span class="unit">
+                                        {{ goods.specifics }}
+                                    </span>
+                                    <p class="price">
+                                        <span>{{ goods.price }}</span>
+                                        <s>{{ goods.marketprice }}</s>
+                                    </p>
+                                </article>
+                            </a>
+                            <section class="subShopping">
+                                <button>-</button>
+                                <span>0</span>
+                                <button>+</button>
+                            </section>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div id="alltypes">
+                    <div >
+                        {% for foo in type %}
+                            <a href="/market_by_typeid/{{ typeid }}/0/{{ foo.1 }}/">
+                                <span>
+                                    {{ foo.0 }}
+                                </span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="zhsort">
+                    <div >
+                        <a href="/market/">
+                            <span>
+                                综合排序
+                            </span>
+                        </a>
+                        <a href="/market_by_typeid/{{ typeid }}/1/{{ childtypenames }}/">
+                            <span>
+                                价格升序
+                            </span>
+                        </a>
+                        <a href="/market_by_typeid/{{ typeid }}/2/{{ childtypenames }}/">
+                            <span>
+                                价格降序
+                            </span>
+                        </a>
+                        <a  href="/market_by_typeid/{{ typeid }}/3/{{ childtypenames }}/">
+                            <span>
+                                销量排序
+                            </span>
+                        </a>
+
+
+
+
+                    </div>
+                </div>
+            </menu>
+
+        </section>
+    </div>
+{% endblock %}
