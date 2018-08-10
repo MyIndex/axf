@@ -82,5 +82,27 @@ class axf_goods(models.Model):
     productnum = models.IntegerField()
     class Meta:
         db_table = 'axf_goods'
+# 用户信息
+class axf_user_info(models.Model):
+    user_name = models.CharField(max_length=64)
+    user_pass = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = 'axf_user_info'
+# 购物车
+class axf_shopcar(models.Model):
+    user = models.ForeignKey('axf_user_info')
+    goods = models.ForeignKey('axf_goods')
+    goodsNumber = models.IntegerField(default=1)
+    isSelecy = models.BooleanField(default=False)
+    class Meta:
+        db_table = 'axf_shopcar'
+
+
+
+
+
+
+
 
 

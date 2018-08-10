@@ -30,4 +30,45 @@ $(function () {
         $(this).hide();
         $('#zhsortspan').removeClass('glyphicon glyphicon-chevron-up').addClass('glyphicon glyphicon-chevron-down')
     });
+    //添加点击事件
+    $('.addShopping').click(function () {
+        // alert($(this).attr('goodsid'));
+        goodsid = $(this).attr('goodsid')
+        //获取按钮上面的标签
+        objects = $(this).prev()
+        $.ajax({
+            url:'/addshopcar/',
+            type:'post',
+            data:{'goodsid':goodsid},
+            success:function (result) {
+                if(result.code == '0009'){
+                    window.location.href='/login/';
+                }else {
+                    objects.html(result.num)
+                }
+
+            }
+
+        });
+    });
+    $('.subShopping').click(function () {
+        // alert($(this).attr('goodsid'));
+        goodsid = $(this).attr('goodsid')
+
+        $.ajax({
+            url:'/subshopcar/',
+            type:'post',
+            data:{'goodsid':goodsid},
+            success:function (result) {
+                if(result.code == '0009'){
+                    window.location.href='/login/';
+                }else{
+                    gid = '#' + goodsid
+                    $(gid).html(result.num)
+                }
+
+            }
+
+        });
+    });
 });

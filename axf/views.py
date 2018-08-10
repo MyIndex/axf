@@ -1,8 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from axf.models import axf_wheel, axf_nav, axf_mustbuy, axf_shop, axf_mainshow, axf_foodtypes, axf_goods
+from axf.models import axf_wheel, axf_nav, axf_mustbuy, axf_shop, axf_mainshow, axf_foodtypes, axf_goods, axf_user_info, \
+    axf_shopcar
 
 
 def index(reques):
@@ -52,7 +53,7 @@ def market_by_typeid(request,typeid,sort=0,childtypenames=0):
         goodslist = axf_goods.objects.filter(categoryid=typeid).order_by('productnum')
     else:
         goodslist = axf_goods.objects.filter(categoryid=typeid)
-
+    # 获取子分类
     if childtypenames != '0':
         goodslist = goodslist.filter(childcid = childtypenames)
 
@@ -65,6 +66,12 @@ def market_by_typeid(request,typeid,sort=0,childtypenames=0):
         types.append(str.split(':'))
     # [['全部分类', '0'], ['进口水果', '103534'], ['国产水果', '103533']]
     # print(types)
+
+    userid = request.session.get('userid')
+    goodsid = request.POST.get('goodsid')
+    shopcar = axf_shopcar.objects.filter(user_id=userid).filter(goods_id=goodsid)
+
+
     data = {
         'title': '闪购',
         'foodtypes': foodtypes,
@@ -72,6 +79,7 @@ def market_by_typeid(request,typeid,sort=0,childtypenames=0):
         'typeid': typeid,
         'type': types,
         'childtypenames': childtypenames,
+        'shopcar': shopcar,
 
     }
     return render(request, 'market.html', data)
@@ -81,8 +89,83 @@ def market(requetst):
     return redirect('/market_by_typeid/104749/0/0/')
 
 def shopcar(request):
+
     data = {
         'title': '购物车',
     }
 
     return render(request, 'shopcar.html', data)
+
+
+def login(request):
+    return render(request,'login.html')
+
+def dologin(requset):
+    username = requset.POST.get('username')
+    user = axf_user_info.objects.filter(user_name=username).first()
+
+    requset.session['username'] = username
+    requset.session['userid'] = user.id
+
+    return redirect('/home/')
+
+
+def addshopcar(request):
+
+    userid = request.session.get('userid')
+    goodsid = request.POST.get('goodsid')
+
+
+    data = {
+
+    }
+
+    if userid:
+        shopcar = axf_shopcar.objects.filter(goods_id=goodsid).first()
+        if shopcar:
+            shopcar.goodsNumber += 1
+            shopcar.save()
+        else:
+            shopcar = axf_shopcar()
+            shopcar.user_id = userid
+            shopcar.goods_id = goodsid
+            shopcar.save()
+
+
+        data['code'] = '0000'
+        data['msg'] = '添加成功'
+        data['num'] = shopcar.goodsNumber
+    else:
+        data['code'] = '0009'
+        data['msg'] = '请登录'
+
+    return JsonResponse(data)
+
+
+def subshopcar(request):
+    userid = request.session.get('userid')
+    goodsid = request.POST.get('goodsid')
+
+    data = {
+
+    }
+
+    if userid:
+        shopcar = axf_shopcar.objects.filter(goods_id=goodsid).first()
+        if shopcar:
+            if shopcar.goodsNumber ==1:
+                shopcar.delete()
+                data['num'] = 0
+            else:
+                shopcar.goodsNumber -= 1
+                shopcar.save()
+                data['num'] = shopcar.goodsNumber
+
+        data['code'] = '0000'
+        data['msg'] = '删除成功'
+
+    else:
+        data['code'] = '0009'
+        data['msg'] = '请登录'
+
+    return JsonResponse(data)

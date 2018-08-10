@@ -24,5 +24,9 @@ urlpatterns = [
     url(r'^index/',views.index),
     url(r'^market/',views.market),
     url(r'^market_by_typeid/(\d+)/(\d+)/(\d+)/',views.market_by_typeid),
+    url(r'^login/',views.login),
+    url(r'^dologin/',views.dologin),
+    url(r'^addshopcar/',views.addshopcar),
+    url(r'^subshopcar/',views.subshopcar),
 
 ]

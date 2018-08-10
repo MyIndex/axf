@@ -60,14 +60,15 @@
                                     </p>
                                 </article>
                             </a>
-                            <section class="subShopping">
-                                <button>-</button>
-                                <span>0</span>
-                                <button>+</button>
+                            <section >
+                                <button class="subShopping" goodsid="{{ goods.id }}">-</button>
+                                <span id='{{ goods.id }}' style="font-size: 0.3rem;">0</span>
+                                <button class="addShopping" goodsid="{{ goods.id }}">+</button>
                             </section>
                         </li>
                     {% endfor %}
                 </ul>
+{#                所有类型#}
                 <div id="alltypes">
                     <div >
                         {% for foo in type %}
@@ -79,6 +80,7 @@
                         {% endfor %}
                     </div>
                 </div>
+{#              综合排序#}
                 <div id="zhsort">
                     <div >
                         <a href="/market/">

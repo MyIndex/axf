@@ -219,11 +219,17 @@ li > section > span {
     text-align: center;
     line-height: 0.4rem;
 }
+.addShopping {
+    font-size: 0.8rem;
+    font-weight: 100;
+}
 
 .subShopping {
     font-size: 0.8rem;
     font-weight: 100;
 }
+
+
 
 /************分类********************************/
 section menu > div {
