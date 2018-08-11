@@ -9,7 +9,7 @@ from axf.models import axf_wheel, axf_nav, axf_mustbuy, axf_shop, axf_mainshow, 
 def index(reques):
     return render(reques,'base_main.html')
 
-
+# 首页
 def home(request):
     axfwheel = axf_wheel.objects.all()
     axfnav = axf_nav.objects.all()
@@ -38,7 +38,7 @@ def home(request):
 
     return render(request,'home.html',data)
 
-
+# 闪购
 def market_by_typeid(request,typeid,sort=0,childtypenames=0):
     # 全部类别
     foodtypes = axf_foodtypes.objects.all()
@@ -88,14 +88,19 @@ def market(requetst):
     # 回转
     return redirect('/market_by_typeid/104749/0/0/')
 
-def shopcar(request):
 
+def shopcar(request):
+    userid = request.session.get('userid')
     data = {
         'title': '购物车',
     }
 
-    return render(request, 'shopcar.html', data)
-
+    if userid:
+        shopcars = axf_shopcar.objects.filter(user=userid)
+        data['shopcars'] = shopcars
+        return render(request, 'shopcar.html', data)
+    else:
+        return redirect('/login/')
 
 def login(request):
     return render(request,'login.html')
@@ -109,7 +114,7 @@ def dologin(requset):
 
     return redirect('/home/')
 
-
+# 添加商品
 def addshopcar(request):
 
     userid = request.session.get('userid')
@@ -119,9 +124,10 @@ def addshopcar(request):
     data = {
 
     }
-
+    # 判断用户是否登录
     if userid:
         shopcar = axf_shopcar.objects.filter(goods_id=goodsid).first()
+        # 判断购物车有无此商品
         if shopcar:
             shopcar.goodsNumber += 1
             shopcar.save()
@@ -130,8 +136,6 @@ def addshopcar(request):
             shopcar.user_id = userid
             shopcar.goods_id = goodsid
             shopcar.save()
-
-
         data['code'] = '0000'
         data['msg'] = '添加成功'
         data['num'] = shopcar.goodsNumber
@@ -141,7 +145,7 @@ def addshopcar(request):
 
     return JsonResponse(data)
 
-
+# 删除物品
 def subshopcar(request):
     userid = request.session.get('userid')
     goodsid = request.POST.get('goodsid')

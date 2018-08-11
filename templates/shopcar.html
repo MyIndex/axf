@@ -5,8 +5,30 @@
     <link type="text/css" rel="stylesheet" href="{% static 'css/cart.css' %}">
 
 {% endblock %}
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/shopcar.js' %}"></script>
+{% endblock %}
 {% block body %}
-    <div>
-        我的购物车
+    <div id="cart">
+        <ul>
+            <input  id="cartboxall" type="checkbox" style="width: 0.4rem;height: 0.4rem" >
+            <hr color="red"/>
+            {% for shopcar in shopcars %}
+                <li class="carbox">
+                    <input  type="checkbox" name='cartbox' style="width: 0.4rem;height: 0.4rem">
+                    <img src="{{ shopcar.goods.productimg }}" alt="{{ shopcar.goods.productname }}"/>
+                    <span>{{ shopcar.goods.productname }}</span>
+                    <section>
+                        <button class="subShopping" goodsid="{{ shopcar.goods.id }}">-</button>
+                        <span id='{{ shopcar.goods.id }}' style="font-size: 0.3rem;">{{ shopcar.goodsNumber }}</span>
+                        <button class="addShopping" goodsid="{{ shopcar.goods.id }}">+</button>
+                    </section>
+
+                </li>
+                <hr color="red"/>
+            {% endfor %}
+
+        </ul>
     </div>
 {% endblock %}

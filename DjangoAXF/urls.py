@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^dologin/',views.dologin),
     url(r'^addshopcar/',views.addshopcar),
     url(r'^subshopcar/',views.subshopcar),
+    url(r'^shopcar/',views.shopcar),
 
 ]
