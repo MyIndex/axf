@@ -173,3 +173,15 @@ def subshopcar(request):
         data['msg'] = '请登录'
 
     return JsonResponse(data)
+
+
+def shopcarselect(request):
+    data = {}
+    id = request.POST.get('id')
+    print(id)
+    check = request.POST.get('check')
+    shopcar = axf_shopcar.objects.filter(pk=id).first()
+    bl = check == 'true'
+    shopcar.isSelecy = bl
+    shopcar.save()
+    return JsonResponse(data)

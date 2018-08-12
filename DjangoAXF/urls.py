@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^addshopcar/',views.addshopcar),
     url(r'^subshopcar/',views.subshopcar),
     url(r'^shopcar/',views.shopcar),
+    url(r'^shopcarselect/',views.shopcarselect),
 
 ]

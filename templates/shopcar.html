@@ -16,7 +16,11 @@
             <hr color="red"/>
             {% for shopcar in shopcars %}
                 <li class="carbox">
-                    <input  type="checkbox" name='cartbox' style="width: 0.4rem;height: 0.4rem">
+                    <input  shopcarid='{{ shopcar.id }}' type="checkbox" name='cartbox' style="width: 0.4rem;height: 0.4rem"
+                            {% if shopcar.isSelecy %}
+                                checked="checked"
+                            {% endif %}
+                    >
                     <img src="{{ shopcar.goods.productimg }}" alt="{{ shopcar.goods.productname }}"/>
                     <span>{{ shopcar.goods.productname }}</span>
                     <section>
