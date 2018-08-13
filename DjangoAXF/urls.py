@@ -26,9 +26,15 @@ urlpatterns = [
     url(r'^market_by_typeid/(\d+)/(\d+)/(\d+)/',views.market_by_typeid),
     url(r'^login/',views.login),
     url(r'^dologin/',views.dologin),
+    url(r'^regist/',views.regist),
+    url(r'^doregist/',views.doregist),
+    url(r'^checkname/',views.checkname),
+
+
     url(r'^addshopcar/',views.addshopcar),
     url(r'^subshopcar/',views.subshopcar),
     url(r'^shopcar/',views.shopcar),
     url(r'^shopcarselect/',views.shopcarselect),
+    url(r'^createorder/',views.createorder),
 
 ]

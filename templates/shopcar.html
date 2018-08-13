@@ -12,27 +12,34 @@
 {% block body %}
     <div id="cart">
         <ul>
-            <input  id="cartboxall" type="checkbox" style="width: 0.4rem;height: 0.4rem" >
-            <hr color="red"/>
-            {% for shopcar in shopcars %}
-                <li class="carbox">
-                    <input  shopcarid='{{ shopcar.id }}' type="checkbox" name='cartbox' style="width: 0.4rem;height: 0.4rem"
-                            {% if shopcar.isSelecy %}
-                                checked="checked"
-                            {% endif %}
-                    >
-                    <img src="{{ shopcar.goods.productimg }}" alt="{{ shopcar.goods.productname }}"/>
-                    <span>{{ shopcar.goods.productname }}</span>
-                    <section>
-                        <button class="subShopping" goodsid="{{ shopcar.goods.id }}">-</button>
-                        <span id='{{ shopcar.goods.id }}' style="font-size: 0.3rem;">{{ shopcar.goodsNumber }}</span>
-                        <button class="addShopping" goodsid="{{ shopcar.goods.id }}">+</button>
-                    </section>
-
-                </li>
+            <form action="/createorder/" method="post">
+                <input id="cartboxall" type="checkbox" style="width: 0.4rem;height: 0.4rem">
                 <hr color="red"/>
-            {% endfor %}
+                {% for shopcar in shopcars %}
+                    <li class="carbox">
+                        <input shopcarid='{{ shopcar.id }}' type="checkbox" name='cartbox' value="{{ shopcar.id }}"
+                               style="width: 0.4rem;height: 0.4rem"
+                                {% if shopcar.isSelecy %}
+                               checked="checked"
+                                {% endif %}
+                        >
+                        <img src="{{ shopcar.goods.productimg }}" alt="{{ shopcar.goods.productname }}"/>
+                        <span>{{ shopcar.goods.productname }}</span>
+                        <section>
+                            <div class="subShopping" goodsid="{{ shopcar.goods.id }}">-</div>
+                            <span id='{{ shopcar.goods.id }}'
+                                  style="font-size: 0.3rem;">{{ shopcar.goodsNumber }}</span>
+                            <div class="addShopping" goodsid="{{ shopcar.goods.id }}">+</div>
+                        </section>
 
+                    </li>
+                    <hr color="red"/>
+                {% endfor %}
+                <li>
+                    <button type="submit" style="width: 2rem;height: 2rem;font-size: 0.5rem">提交</button>
+                </li>
+
+            </form>
         </ul>
     </div>
 {% endblock %}

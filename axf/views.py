@@ -1,9 +1,14 @@
+import hashlib
+import logging
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.views.decorators.cache import cache_page
+
 from axf.models import axf_wheel, axf_nav, axf_mustbuy, axf_shop, axf_mainshow, axf_foodtypes, axf_goods, axf_user_info, \
-    axf_shopcar
+    axf_shopcar, axf_order, axf_order_info
 
 
 def index(reques):
@@ -39,6 +44,8 @@ def home(request):
     return render(request,'home.html',data)
 
 # 闪购
+# 设置缓存
+@cache_page(60*10)
 def market_by_typeid(request,typeid,sort=0,childtypenames=0):
     # 全部类别
     foodtypes = axf_foodtypes.objects.all()
@@ -56,6 +63,10 @@ def market_by_typeid(request,typeid,sort=0,childtypenames=0):
     # 获取子分类
     if childtypenames != '0':
         goodslist = goodslist.filter(childcid = childtypenames)
+
+
+    # 用于测试缓存
+    # goodslist = axf_goods.objects.all()
 
     # 对类别进行切割
     goodstype = axf_foodtypes.objects.filter(typeid = typeid).first()
@@ -104,7 +115,7 @@ def shopcar(request):
 
 def login(request):
     return render(request,'login.html')
-
+# 登录
 def dologin(requset):
     username = requset.POST.get('username')
     user = axf_user_info.objects.filter(user_name=username).first()
@@ -174,7 +185,7 @@ def subshopcar(request):
 
     return JsonResponse(data)
 
-
+# 选择订单
 def shopcarselect(request):
     data = {}
     id = request.POST.get('id')
@@ -185,3 +196,76 @@ def shopcarselect(request):
     shopcar.isSelecy = bl
     shopcar.save()
     return JsonResponse(data)
+
+# 创建订单
+def createorder(request):
+    userid = request.session.get('userid')
+    shopcarids = request.POST.getlist('cartbox')
+    print(shopcarids)
+    if shopcarids == []:
+        return HttpResponse('没有勾选商品')
+    # 生成订单
+    order = axf_order()
+    order.user_id = userid
+    order.orderNumber = len(shopcarids)
+    order.save()
+    orderlist = []
+    # 生成订单详情
+    for shopcarid in shopcarids:
+        orderInfo = axf_order_info()
+        shopcar = axf_shopcar.objects.filter(pk=shopcarid).first()
+        orderInfo.order = order
+        orderInfo.goods_id = shopcar.goods_id
+        orderInfo.goodsNumber = shopcar.goodsNumber
+        orderInfo.goodsmoney = shopcar.goodsNumber * shopcar.goods.price
+        orderInfo.save()
+        #删除购物车
+        shopcar.delete()
+        orderlist.append(orderInfo)
+
+    return render(request,'order.html',{'order':order,'orderlist':orderlist})
+
+#判断用户是否可用
+def checkname(request):
+    # 记录
+    # loger = logging.getLogger('django')
+
+    name = request.POST.get('name')
+    # print(name)
+
+    # loger.info('start checkname methon ')
+
+    user = axf_user_info.objects.filter(user_name=name).first()
+
+    # loger.info('start checkname name: ' + name)
+
+    data = {}
+    if user:
+        data['code'] = '0009'
+    else:
+        data['code'] = '0000'
+
+    # loger.info('end checkname result:' + data['code'])
+
+    return JsonResponse(data)
+
+# 注册
+def regist(request):
+    return render(request,'regist.html')
+
+
+def doregist(request):
+    name = request.POST.get('username')
+    password = request.POST.get('password')
+    MD5 = hashlib.md5()
+    MD5.update(password.encode('utf-8'))
+    pwd = MD5.hexdigest()
+
+    user = axf_user_info()
+    user.user_name = name
+    user.user_pass = pwd
+    user.save()
+    request.session.flush()
+    request.session['name'] = 'name'
+
+    return redirect('/home/')

@@ -99,6 +99,32 @@ class axf_shopcar(models.Model):
         db_table = 'axf_shopcar'
 
 
+# 订单
+class axf_order(models.Model):
+    user = models.ForeignKey('axf_user_info')
+    # 0：待支付   1：已支付  2：已发货   3：已收货  4：已评价   5：已退款
+    status = models.IntegerField(default=0)
+    createDate = models.DateTimeField(auto_now_add=True)
+    orderNumber = models.IntegerField(default=1)
+
+    class Meta:
+        db_table = 'axf_order'
+#订单详情
+class axf_order_info(models.Model):
+    order = models.ForeignKey('axf_order')
+    goods = models.ForeignKey('axf_goods')
+    goodsNumber = models.IntegerField(default=1)
+    goodsmoney = models.FloatField(default=1)
+
+    class Meta:
+        db_table = 'axf_order_info'
+
+
+
+
+
+
+
 
 
 

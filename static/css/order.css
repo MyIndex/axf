@@ -1,4 +1,4 @@
-#market {
+#order {
     padding: 1.5rem 0;
     font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
     overflow: auto;
@@ -6,11 +6,4 @@
     width: 100%;
     position: fixed;
     font-size: 0.5rem;
-}
-
-.redfont{
-    color:red;
-}
-.greenfont{
-    color:green;
 }

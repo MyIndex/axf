@@ -1,0 +1,29 @@
+{% extends 'base_main.html' %}
+
+{% load static %}
+
+{% block extCSS %}
+    {{ block.super }}
+    <link type="text/css" href="{% static 'css/order.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="order">
+        订单编号：{{ order.id }}
+        用户名：{{ order.user.user_name }}
+        订单数量：{{ order.orderNumber }}
+        <ul>
+            {% for order in orderlist %}
+                <li>
+                    <img src="{{ order.goods.productimg }}">
+                    <span>{{ order.goods.productname }}</span>
+                    <span style="color: red;">￥{{ order.goods.price }}</span>
+                    <span>{{ order.goodsNumber }}个</span>
+                    <span>{{ order.goodsmoney }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+    </div>
+{% endblock %}

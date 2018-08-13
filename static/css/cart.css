@@ -46,7 +46,7 @@ li > section {
     border-radius: 1rem;
 }
 
-section > button {
+section > div {
     background: white;
     border: 1px solid orange;
     border-radius: 1111px;
@@ -55,8 +55,9 @@ section > button {
     text-align: center;
     line-height: 0.55rem;
     font-weight: 900;
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline;
 }
 
 li > section > span {

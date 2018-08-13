@@ -1,0 +1,38 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block extCSS %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+
+{% block body %}
+    <div id="market">
+        <form method="post" action="/doregist/">
+            用户名:<input type="text" name="username" onblur="checkname(this)"><br>
+            <span id="checkname"></span><br>
+            密码： <input type="password" name="password"><br>
+            <input id="put" type="submit" value="注册">
+        </form>
+    </div>
+
+    <script>
+        function checkname(self) {
+            $.ajax({
+                url:'/checkname/',
+                type:'post',
+                data:{'name':self.value},
+                success:function (result) {
+                    if(result.code == '0000'){
+                        $('#checkname').html('该用户名可用！').removeClass('redfont').addClass('greenfont')
+
+                    }else{
+                        $('#checkname').html('该用户名已占用！').removeClass('greenfont').addClass('redfont')
+
+                    }
+                }
+            });
+
+        }
+    </script>
+{% endblock %}
