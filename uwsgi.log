@@ -1,0 +1,576 @@
+*** Starting uWSGI 2.0.17.1 (64bit) on [Tue Aug 14 21:38:27 2018] ***
+compiled with version: 5.4.0 20160609 on 14 August 2018 11:09:10
+os: Linux-4.15.0-30-generic #32~16.04.1-Ubuntu SMP Thu Jul 26 20:25:39 UTC 2018
+nodename: pyc
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/meakelra/Django/DjangoAXF
+writing pidfile to uwsgi.pid
+detected binary path: /home/meakelra/.virtualenvs/python35/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/meakelra/Django/DjangoAXF
+your processes number limit is 11685
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:9000 fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x23455b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145808 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x23455b0 pid: 14426 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14426)
+spawned uWSGI worker 1 (pid: 14428, cores: 1)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+2018-08-14 21:42:36,730 WARNING  Not Found: /favicon.ico
+[pid: 14428|app: 0|req: 1/1] 10.11.68.86 () {36 vars in 544 bytes} [Tue Aug 14 21:42:35 2018] GET /favicon.ico => generated 85 bytes in 1037 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 21:42:37,607 WARNING  Not Found: /
+[pid: 14428|app: 0|req: 2/2] 10.11.68.86 () {44 vars in 739 bytes} [Tue Aug 14 21:42:37 2018] GET / => generated 74 bytes in 6 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 21:42:38,093 WARNING  Not Found: /favicon.ico
+[pid: 14428|app: 0|req: 3/3] 10.11.68.86 () {40 vars in 623 bytes} [Tue Aug 14 21:42:38 2018] GET /favicon.ico => generated 85 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 4/4] 10.11.68.86 () {40 vars in 656 bytes} [Tue Aug 14 21:42:51 2018] GET /home/ => generated 23450 bytes in 206 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 5/5] 10.11.68.86 () {40 vars in 666 bytes} [Tue Aug 14 21:44:44 2018] GET /home/ => generated 23450 bytes in 865 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+2018-08-14 21:44:50,707 WARNING  Not Found: /favicon.ico
+[pid: 14428|app: 0|req: 6/6] 10.11.68.86 () {40 vars in 638 bytes} [Tue Aug 14 21:44:50 2018] GET /favicon.ico => generated 85 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 7/7] 10.11.68.86 () {42 vars in 717 bytes} [Tue Aug 14 21:45:02 2018] GET /home/ => generated 23450 bytes in 98 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 8/8] 10.11.68.86 () {42 vars in 731 bytes} [Tue Aug 14 21:45:05 2018] GET /market/ => generated 0 bytes in 26 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:45:05,173 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 9/9] 10.11.68.86 () {42 vars in 773 bytes} [Tue Aug 14 21:45:05 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 121 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+2018-08-14 21:45:08,798 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 10/10] 10.11.68.86 () {44 vars in 804 bytes} [Tue Aug 14 21:45:08 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 2 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 11/11] 10.11.68.86 () {42 vars in 733 bytes} [Tue Aug 14 21:45:11 2018] GET /shopcar/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 12/12] 10.11.68.86 () {42 vars in 729 bytes} [Tue Aug 14 21:45:11 2018] GET /login/ => generated 1937 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 13/13] 10.11.68.86 () {42 vars in 732 bytes} [Tue Aug 14 21:45:15 2018] GET /market/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:45:15,572 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 14/14] 10.11.68.86 () {42 vars in 774 bytes} [Tue Aug 14 21:45:15 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 3 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 15/15] 10.11.68.86 () {50 vars in 914 bytes} [Tue Aug 14 21:45:23 2018] POST /dologin/ => generated 0 bytes in 943 msecs (HTTP/1.1 302) 6 headers in 273 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 16/16] 10.11.68.86 () {46 vars in 816 bytes} [Tue Aug 14 21:45:24 2018] GET /home/ => generated 23450 bytes in 163 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 17/17] 10.11.68.86 () {44 vars in 788 bytes} [Tue Aug 14 21:45:26 2018] GET /market/ => generated 0 bytes in 3 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:45:26,313 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 18/18] 10.11.68.86 () {44 vars in 830 bytes} [Tue Aug 14 21:45:26 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 6 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 19/19] 10.11.68.86 () {44 vars in 790 bytes} [Tue Aug 14 21:45:29 2018] GET /shopcar/ => generated 2182 bytes in 513 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 20/20] 10.11.68.86 () {44 vars in 791 bytes} [Tue Aug 14 21:45:32 2018] GET /market/ => generated 0 bytes in 0 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:45:32,319 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 21/21] 10.11.68.86 () {44 vars in 833 bytes} [Tue Aug 14 21:45:32 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 2 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+2018-08-14 21:45:35,725 WARNING  Not Found: /mine/
+[pid: 14428|app: 0|req: 22/22] 10.11.68.86 () {44 vars in 787 bytes} [Tue Aug 14 21:45:35 2018] GET /mine/ => generated 79 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 23/23] 10.11.68.86 () {44 vars in 791 bytes} [Tue Aug 14 21:45:55 2018] GET /market/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:45:55,338 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 24/24] 10.11.68.86 () {44 vars in 833 bytes} [Tue Aug 14 21:45:55 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 2 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 14428|app: 0|req: 25/25] 10.11.68.86 () {44 vars in 790 bytes} [Tue Aug 14 21:48:16 2018] GET /shopcar/ => generated 2182 bytes in 145 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 26/26] 10.11.68.86 () {44 vars in 787 bytes} [Tue Aug 14 21:48:18 2018] GET /home/ => generated 23450 bytes in 46 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 27/27] 10.11.68.86 () {44 vars in 788 bytes} [Tue Aug 14 21:48:19 2018] GET /market/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:48:19,271 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 28/28] 10.11.68.86 () {44 vars in 830 bytes} [Tue Aug 14 21:48:19 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 4 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+2018-08-14 21:48:20,440 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 29/29] 10.11.68.86 () {46 vars in 861 bytes} [Tue Aug 14 21:48:20 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 2 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+2018-08-14 21:48:20,948 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 30/30] 10.11.68.86 () {46 vars in 861 bytes} [Tue Aug 14 21:48:20 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 2 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 31/31] 10.11.68.86 () {42 vars in 723 bytes} [Tue Aug 14 21:49:18 2018] GET /home/ => generated 23450 bytes in 188 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+2018-08-14 21:49:49,080 WARNING  Not Found: /
+[pid: 14428|app: 0|req: 32/32] 10.11.68.251 () {44 vars in 741 bytes} [Tue Aug 14 21:49:49 2018] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 21:49:49,200 WARNING  Not Found: /favicon.ico
+[pid: 14428|app: 0|req: 33/33] 10.11.68.251 () {40 vars in 625 bytes} [Tue Aug 14 21:49:49 2018] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 34/34] 10.11.68.251 () {40 vars in 656 bytes} [Tue Aug 14 21:49:53 2018] GET /home => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 35/35] 10.11.68.251 () {40 vars in 658 bytes} [Tue Aug 14 21:49:53 2018] GET /home/ => generated 23450 bytes in 55 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 36/36] 10.11.68.251 () {42 vars in 719 bytes} [Tue Aug 14 21:50:06 2018] GET /home/ => generated 23450 bytes in 45 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 37/37] 10.11.68.251 () {42 vars in 733 bytes} [Tue Aug 14 21:50:08 2018] GET /market/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:50:08,704 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 38/38] 10.11.68.251 () {42 vars in 775 bytes} [Tue Aug 14 21:50:08 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 3 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 39/39] 10.11.68.86 () {44 vars in 774 bytes} [Tue Aug 14 21:52:40 2018] GET /home/ => generated 23450 bytes in 79 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 40/40] 10.11.68.86 () {44 vars in 788 bytes} [Tue Aug 14 21:52:42 2018] GET /market/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+2018-08-14 21:52:42,116 ERROR    Internal Server Error: /market_by_typeid/104749/0/0/
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 32, in _decorator
+    return method(self, *args, **kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 81, in get
+    client=client)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 204, in get
+    raise ConnectionInterrupted(connection=client, parent=e)
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/decorators.py", line 141, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/middleware/cache.py", line 133, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, 'GET', cache=self.cache)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django/utils/cache.py", line 362, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/cache.py", line 39, in _decorator
+    raise e.parent
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/django_redis/client/default.py", line 202, in get
+    value = client.get(key)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/meakelra/.virtualenvs/python35/lib/python3.5/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[pid: 14428|app: 0|req: 41/41] 10.11.68.86 () {44 vars in 830 bytes} [Tue Aug 14 21:52:42 2018] GET /market_by_typeid/104749/0/0/ => generated 27 bytes in 4 msecs (HTTP/1.1 500) 3 headers in 112 bytes (1 switches on core 0)
+2018-08-14 22:00:29,963 WARNING  Not Found: /
+[pid: 14428|app: 0|req: 42/42] 127.0.0.1 () {46 vars in 902 bytes} [Tue Aug 14 22:00:29 2018] GET / => generated 74 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 22:00:30,003 WARNING  Not Found: /favicon.ico
+[pid: 14428|app: 0|req: 43/43] 127.0.0.1 () {42 vars in 783 bytes} [Tue Aug 14 22:00:30 2018] GET /favicon.ico => generated 85 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 22:00:32,326 WARNING  Not Found: /
+[pid: 14428|app: 0|req: 44/44] 127.0.0.1 () {44 vars in 840 bytes} [Tue Aug 14 22:00:32 2018] GET / => generated 74 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 22:00:33,001 WARNING  Not Found: /
+[pid: 14428|app: 0|req: 45/45] 127.0.0.1 () {44 vars in 840 bytes} [Tue Aug 14 22:00:33 2018] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+2018-08-14 22:00:33,449 WARNING  Not Found: /
+[pid: 14428|app: 0|req: 46/46] 127.0.0.1 () {44 vars in 840 bytes} [Tue Aug 14 22:00:33 2018] GET / => generated 74 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 47/47] 127.0.0.1 () {42 vars in 819 bytes} [Tue Aug 14 22:00:50 2018] GET /home/ => generated 23450 bytes in 53 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 48/48] 127.0.0.1 () {44 vars in 861 bytes} [Tue Aug 14 22:00:53 2018] GET /market/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 49/49] 127.0.0.1 () {44 vars in 903 bytes} [Tue Aug 14 22:00:53 2018] GET /market_by_typeid/104749/0/0/ => generated 10596 bytes in 481 msecs (HTTP/1.1 200) 6 headers in 264 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 50/50] 127.0.0.1 () {44 vars in 842 bytes} [Tue Aug 14 22:00:55 2018] GET /shopcar/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 51/51] 127.0.0.1 () {44 vars in 838 bytes} [Tue Aug 14 22:00:55 2018] GET /login/ => generated 1937 bytes in 2 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 52/52] 127.0.0.1 () {44 vars in 814 bytes} [Tue Aug 14 22:00:57 2018] GET /home/ => generated 23450 bytes in 114 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 53/53] 127.0.0.1 () {44 vars in 817 bytes} [Tue Aug 14 22:00:58 2018] GET /market/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 54/54] 127.0.0.1 () {44 vars in 842 bytes} [Tue Aug 14 22:00:59 2018] GET /shopcar/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 55/55] 127.0.0.1 () {44 vars in 838 bytes} [Tue Aug 14 22:00:59 2018] GET /login/ => generated 1937 bytes in 2 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 56/56] 127.0.0.1 () {52 vars in 997 bytes} [Tue Aug 14 22:01:03 2018] POST /dologin/ => generated 0 bytes in 71 msecs (HTTP/1.1 302) 6 headers in 273 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 57/57] 127.0.0.1 () {46 vars in 889 bytes} [Tue Aug 14 22:01:03 2018] GET /home/ => generated 23450 bytes in 68 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 58/58] 127.0.0.1 () {44 vars in 861 bytes} [Tue Aug 14 22:01:05 2018] GET /market/ => generated 0 bytes in 0 msecs (HTTP/1.1 302) 4 headers in 151 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 59/59] 127.0.0.1 () {44 vars in 926 bytes} [Tue Aug 14 22:01:07 2018] GET /market_by_typeid/103581/0/0/ => generated 26018 bytes in 125 msecs (HTTP/1.1 200) 6 headers in 193 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 60/60] 127.0.0.1 () {50 vars in 990 bytes} [Tue Aug 14 22:01:08 2018] POST /addshopcar/ => generated 61 bytes in 221 msecs (HTTP/1.1 200) 4 headers in 114 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 61/61] 127.0.0.1 () {50 vars in 990 bytes} [Tue Aug 14 22:01:09 2018] POST /addshopcar/ => generated 61 bytes in 108 msecs (HTTP/1.1 200) 4 headers in 114 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 62/62] 127.0.0.1 () {50 vars in 990 bytes} [Tue Aug 14 22:01:10 2018] POST /addshopcar/ => generated 61 bytes in 93 msecs (HTTP/1.1 200) 4 headers in 114 bytes (1 switches on core 0)
+[pid: 14428|app: 0|req: 63/63] 127.0.0.1 () {44 vars in 886 bytes} [Tue Aug 14 22:01:12 2018] GET /shopcar/ => generated 4868 bytes in 73 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+1
+[pid: 14428|app: 0|req: 64/64] 127.0.0.1 () {50 vars in 976 bytes} [Tue Aug 14 22:01:14 2018] POST /shopcarselect/ => generated 2 bytes in 312 msecs (HTTP/1.1 200) 3 headers in 99 bytes (1 switches on core 0)
+2
+[pid: 14428|app: 0|req: 65/65] 127.0.0.1 () {50 vars in 976 bytes} [Tue Aug 14 22:01:15 2018] POST /shopcarselect/ => generated 2 bytes in 86 msecs (HTTP/1.1 200) 3 headers in 99 bytes (1 switches on core 0)
+3
+[pid: 14428|app: 0|req: 66/66] 127.0.0.1 () {50 vars in 976 bytes} [Tue Aug 14 22:01:15 2018] POST /shopcarselect/ => generated 2 bytes in 46 msecs (HTTP/1.1 200) 3 headers in 99 bytes (1 switches on core 0)
+['1', '2', '3']
+[pid: 14428|app: 0|req: 67/67] 127.0.0.1 () {52 vars in 1051 bytes} [Tue Aug 14 22:01:15 2018] POST /createorder/ => generated 2950 bytes in 396 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
