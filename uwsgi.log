@@ -574,3 +574,36 @@ redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connec
 [pid: 14428|app: 0|req: 66/66] 127.0.0.1 () {50 vars in 976 bytes} [Tue Aug 14 22:01:15 2018] POST /shopcarselect/ => generated 2 bytes in 46 msecs (HTTP/1.1 200) 3 headers in 99 bytes (1 switches on core 0)
 ['1', '2', '3']
 [pid: 14428|app: 0|req: 67/67] 127.0.0.1 () {52 vars in 1051 bytes} [Tue Aug 14 22:01:15 2018] POST /createorder/ => generated 2950 bytes in 396 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+...brutally killing workers...
+Gracefully killing worker 1 (pid: 14428)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/meakelra/Django/DjangoAXF
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 3 mapped to socket 0 (127.0.0.1:9000)
+running /home/meakelra/.virtualenvs/python35/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.17.1 (64bit) on [Tue Aug 14 22:05:57 2018] ***
+compiled with version: 5.4.0 20160609 on 14 August 2018 11:09:10
+os: Linux-4.15.0-30-generic #32~16.04.1-Ubuntu SMP Thu Jul 26 20:25:39 UTC 2018
+nodename: pyc
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/meakelra/Django/DjangoAXF
+detected binary path: /home/meakelra/.virtualenvs/python35/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/meakelra/Django/DjangoAXF
+your processes number limit is 11685
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:9000 fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x71af30
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145808 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
