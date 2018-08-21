@@ -3,20 +3,22 @@
 
 {% block extCSS %}
     <link type="text/css" rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script type="text/javascript" src="{% static 'js/md5.js' %}"></script>
 {% endblock %}
 
 
 {% block body %}
     <div id="market">
-        <form method="post" action="/doregist/">
+        <form method="post" action="/doregist/" onsubmit="return test()">
             用户名:<input type="text" name="username" onblur="checkname(this)"><br>
             <span id="checkname"></span><br>
-            密码： <input type="password" name="password"><br>
+            密码： <input type="password" name="password" id="pwd"><br>
             <input id="put" type="submit" value="注册">
         </form>
     </div>
 
     <script>
+        flag = 1
         function checkname(self) {
             $.ajax({
                 url:'/checkname/',
@@ -24,15 +26,27 @@
                 data:{'name':self.value},
                 success:function (result) {
                     if(result.code == '0000'){
-                        $('#checkname').html('该用户名可用！').removeClass('redfont').addClass('greenfont')
-
+                        $('#checkname').html('该用户名可用！').removeClass('redfont').addClass('greenfont');
+                        flag = true;
                     }else{
-                        $('#checkname').html('该用户名已占用！').removeClass('greenfont').addClass('redfont')
-
+                        $('#checkname').html('该用户名已占用！').removeClass('greenfont').addClass('redfont');
+                        flag = false;
                     }
                 }
             });
 
+        }
+        function test() {
+            if(flag){
+                pwd = $('#pwd').val();
+                passwd = md5(pwd);
+                $('#pwd').val(passwd);
+                alert('111')
+                return true
+            }
+            else{
+                return false
+            }
         }
     </script>
 {% endblock %}

@@ -45,7 +45,7 @@ def home(request):
 
 # 闪购
 # 设置缓存
-@cache_page(60*10)
+# @cache_page(60*10)
 def market_by_typeid(request,typeid,sort=0,childtypenames=0):
     # 全部类别
     foodtypes = axf_foodtypes.objects.all()
@@ -269,3 +269,11 @@ def doregist(request):
     request.session['name'] = 'name'
 
     return redirect('/home/')
+
+
+def mine(request):
+
+    return render(request,'mine.html')
+
+
+

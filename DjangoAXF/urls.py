@@ -36,5 +36,6 @@ urlpatterns = [
     url(r'^shopcar/',views.shopcar),
     url(r'^shopcarselect/',views.shopcarselect),
     url(r'^createorder/',views.createorder),
+    url(r'^mine/',views.mine),
 
 ]
